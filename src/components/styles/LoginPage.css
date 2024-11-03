@@ -1,0 +1,27 @@
+.login-page{
+    text-align: center;
+}
+
+.login-page form{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    width: 50%;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.login-page form input{
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+
+.login-page form button{
+    background-color: #ff752b;
+    font-size: large;
+    border: 1px solid #fc6a1b;
+    padding: 0.3rem 0rem;
+    width: 100%;
+    border-radius: 1rem;
+}
