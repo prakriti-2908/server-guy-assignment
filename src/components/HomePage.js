@@ -40,7 +40,7 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://hn.algolia.com/api/v1/search?tags=story&page=${page}&hitsPerPage=20`
+          `https://hn.algolia.com/api/v1/search?tags=story&page=${page}&hitsPerPage=20`
         );
         setData(response.data.hits);
       } catch (error) {
@@ -49,16 +49,22 @@ const HomePage = () => {
     };
     fetchData();
   }, [page]);
-  const {name} = useName();
+  const { name } = useName();
 
   const handleCardClick = (item) => {
     navigate("/comments", { state: { comments: item.children || [] } });
   };
 
   const filteredData = data.filter((item) => {
-    const titleMatch = item.title?.toLowerCase().includes(searchQuery.toLowerCase());
-    const authorMatch = item.author?.toLowerCase().includes(searchQuery.toLowerCase());
-    const urlMatch = item.url?.toLowerCase().includes(searchQuery.toLowerCase());
+    const titleMatch = item.title
+      ?.toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const authorMatch = item.author
+      ?.toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const urlMatch = item.url
+      ?.toLowerCase()
+      .includes(searchQuery.toLowerCase());
     return titleMatch || authorMatch || urlMatch;
   });
 
@@ -66,7 +72,10 @@ const HomePage = () => {
     <div className="center">
       <div className="navbar">
         <div className="logo">
-          <img src="https://hn.algolia.com/public/899d76bbc312122ee66aaaff7f933d13.png" alt="algolia" />
+          <img
+            src="https://hn.algolia.com/public/899d76bbc312122ee66aaaff7f933d13.png"
+            alt="algolia"
+          />
           <h2>{name}</h2>
         </div>
         <div className="search-input">
